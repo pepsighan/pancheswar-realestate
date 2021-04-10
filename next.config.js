@@ -1,19 +1,18 @@
-module.exports = ({
-  pageExtensions: ["tsx"],
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+module.exports = {
+  webpack: (config) => {
     config.module.rules.push(
       ...[
         {
           test: /\.yml$/,
-          type: "json",
-          use: "yaml-loader",
+          type: 'json',
+          use: 'yaml-loader',
         },
         {
           test: /\.svg$/,
-          use: "@svgr/webpack",
+          use: '@svgr/webpack',
         },
       ]
     );
     return config;
   },
-});
+};
