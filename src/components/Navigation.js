@@ -16,9 +16,11 @@ export default function Navigation() {
             हाम्रो बारेमा
           </Button>
         </Link>
-        <Button color="inherit" sx={{ ml: 4, fontSize: '1.1rem' }}>
-          सेवाहरू
-        </Button>
+        <Link href="/services">
+          <Button color="inherit" sx={{ ml: 4, fontSize: '1.1rem' }}>
+            सेवाहरू
+          </Button>
+        </Link>
         <Button color="inherit" sx={{ ml: 4, fontSize: '1.1rem' }}>
           सम्पर्क
         </Button>
