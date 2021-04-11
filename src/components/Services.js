@@ -101,7 +101,7 @@ function Service({ title, items = [], expanded }) {
       <AccordionDetails>
         <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridGap: 16 }}>
           {items.map((it) => (
-            <Paper key={it} sx={{ p: 2, bgcolor: alpha(colors.blue[600], 0.1) }} elevation={0}>
+            <Paper key={it} sx={{ p: 2, bgcolor: alpha(colors.teal[600], 0.1) }} elevation={0}>
               <Typography variant="body2">{it}</Typography>
             </Paper>
           ))}
