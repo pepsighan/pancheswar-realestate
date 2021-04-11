@@ -1,4 +1,14 @@
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@material-ui/core';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  alpha,
+  Box,
+  colors,
+  Paper,
+  Typography,
+} from '@material-ui/core';
+import { useCallback, useState } from 'react';
 import { MdExpandMore } from 'react-icons/md';
 
 export default function Services() {
@@ -64,32 +74,38 @@ export default function Services() {
 
   return (
     <>
-      {titles.map((it) => (
-        <Service key={it} title={it} items={titleItems[it]} />
+      {titles.map((it, index) => (
+        <Service key={it} title={it} items={titleItems[it]} expanded={index === 0} />
       ))}
     </>
   );
 }
 
-function Service({ title, items = [] }) {
+function Service({ title, items = [], expanded }) {
+  const [isExpanded, setIsExpanded] = useState(expanded);
+
   return (
-    <Accordion>
+    <Accordion
+      expanded={isExpanded}
+      onChange={useCallback((_, expanded) => setIsExpanded(expanded), [])}
+    >
       <AccordionSummary
         expandIcon={<MdExpandMore />}
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography variant="subtitle1">{title}</Typography>
+        <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
+          {title}
+        </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Box sx={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridGap: 16 }}>
           {items.map((it) => (
-            <>
-              {it}
-              <br />
-            </>
+            <Paper key={it} sx={{ p: 2, bgcolor: alpha(colors.blue[600], 0.1) }} elevation={0}>
+              <Typography variant="body2">{it}</Typography>
+            </Paper>
           ))}
-        </Typography>
+        </Box>
       </AccordionDetails>
     </Accordion>
   );
