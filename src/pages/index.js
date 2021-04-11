@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function Index() {
   return (
     <Layout>
-      <Meta title="Pancheswar Multipurpose &amp; Realestate" description="Realestate Agents" />
+      <Meta title="Pancheswar Multipurpose &amp; Realestate" />
 
       <Box sx={{ minHeight: '100vh', overflow: 'hidden', position: 'relative' }}>
         <Image
