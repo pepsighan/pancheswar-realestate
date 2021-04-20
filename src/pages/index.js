@@ -10,7 +10,8 @@ export default function Index() {
       <Box
         sx={{
           display: 'flex',
-          alignItems: 'center',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
           height: '100vh',
           overflow: 'hidden',
         }}
@@ -21,6 +22,7 @@ export default function Index() {
           alt="Photo by Guillaume Meurice"
           sx={{
             width: '100%',
+            height: '100%',
           }}
         />
       </Box>
